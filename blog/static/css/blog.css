@@ -25,7 +25,11 @@ h1 a {
 }
 
 h1, h2, h3, h4 {
+<<<<<<< HEAD
     font-family: 'Noto Sans KR', sans-serif;
+=======
+   font-family: 'Noto Sans KR', sans-serif;
+>>>>>>> 667889dda35b173771b204613b67a2419c42067d
 }
 
 .date {

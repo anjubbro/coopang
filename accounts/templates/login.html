@@ -1,10 +1,27 @@
+<script>
+        // Change the type of input to password or text
+        function Toggle() {
+            var temp = document.getElementById("typepass");
+            if (temp.type === "password") {
+                temp.type = "text";
+            }
+            else {
+                temp.type = "password";
+            }
+        }
+    </script>
+
+
 <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
     <p>username</p>
     <input type="text" name="username">
     <br>
     <p>password</p>
-    <input type="text" name="password">
+    <input type="password" name="password"  id="typepass">
+    <input type="checkbox"
+           onclick="Toggle()">
     <br>
     <input type="submit" value="로그인">
 </form>
+

@@ -6,34 +6,37 @@
     <p>{{ user.username }}</p>
     <a href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
     <form id="logout" method="POST" action="{% url 'logout' %}">
-        {% csrf_token %} <input type="hidden" />
+        {% csrf_token %} <input type="hidden"/>
     </form>
 {% else %}
     <a href="{% url 'signup' %}">회원가입</a>
     <a href="{% url 'login' %}">로그인</a>
 {% endif %}
 {# 1. 여기까지#}
-    <head>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-        <title>An JU Bbro'S blog</title>
-    </head>
-   <body>
-    <div class="page-header">
-        {% if user.is_authenticated %}
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap" rel="stylesheet">
+
+    <title>An JU Bbro'S blog</title>
+</head>
+<body>
+<div class="page-header">
+    {% if user.is_authenticated %}
         <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-        {% endif %}
-        <h1><a href="/">An JU Bbro'S blog</a></h1>
-    </div>
-    <div class="content container">
-        <div class="row">
-            <div class="col-md-8">
+    {% endif %}
+    <h1><a href="/">천둥 장터</a></h1>
+</div>
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
             {% block content %}
             {% endblock %}
-            </div>
         </div>
     </div>
+</div>
 </body>
 </html>

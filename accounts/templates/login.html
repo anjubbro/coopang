@@ -28,7 +28,7 @@
                 </div>
                 <form method="POST" action="{% url 'login' %}">
                     {% csrf_token %}
-                    <div class="mb-3" >
+                    <div class="mb-3">
                         <p>username</p>
                         <input type="text" name="username" style="width: 200px;">
                         <br>
@@ -41,7 +41,7 @@
                         <br>
                         <input type="submit" value="로그인">
                     </div>
-
+                    <button type="button" onclick="location.href='/'">home</button>
 
                 </form>
             </div>

@@ -11,6 +11,12 @@ def signup(request):
     if request.method == 'POST':
         if User.objects.filter(username=request.POST['username']).exists():  # 아이디 중복 체크
             return render(request, 'signup_error.html')
+        if request.POST['username'] == "":
+            return render(request, 'signup_error2.html')
+        elif request.POST['password'] == "":
+            return render(request, 'signup_error2.html')
+        elif request.POST['confirm'] == "":
+            return render(request, 'signup_error2.html')
         # password와 confirm에 입력된 값이 같다면
         if request.POST['password'] == request.POST['confirm']:
             # user 객체를 새로 생성
@@ -44,7 +50,7 @@ def login(request):
         # 존재하지 않는다면
         else:
             # 딕셔너리에 에러메세지를 전달하고 다시 login.html 화면으로 돌아간다.
-            return render(request, 'login.html', {'error': 'username or password is incorrect.'})
+            return render(request, 'login_error.html', {'error': 'username or password is incorrect.'})
     # login으로 GET 요청이 들어왔을때, 로그인 화면을 띄워준다.
     else:
         return render(request, 'login.html')

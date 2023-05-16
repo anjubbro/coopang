@@ -18,6 +18,8 @@ def signup(request):
             # 로그인 한다
             auth.login(request, user)
             return redirect('/')
+        if request.POST['password'] !=  request.POST['confirm']:
+            return render(request, 'signup_error.html')
     # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
     return render(request, 'signup.html')
 

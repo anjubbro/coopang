@@ -1,27 +1,53 @@
+{% load static %}
+
 <script>
-        // Change the type of input to password or text
-        function Toggle() {
-            var temp = document.getElementById("typepass");
-            if (temp.type === "password") {
-                temp.type = "text";
-            }
-            else {
-                temp.type = "password";
-            }
+    // Change the type of input to password or text
+    function Toggle() {
+        var temp = document.getElementById("typepass");
+        if (temp.type === "password") {
+            temp.type = "text";
+        } else {
+            temp.type = "password";
         }
-    </script>
+    }
+</script>
+<body style="width: 100%;background-color:MediumSeaGreen;">
+
+<div class="container" style="text-align:center;">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2 class="text-center text-dark mt-5">장터 장터</h2>
+            <div class="text-center mb-5 text-dark">회원가입을 해보아요!</div>
+            <div class="card my-5">
 
 
-<form method="POST" action="{% url 'login' %}">
-    {% csrf_token %}
-    <p>username</p>
-    <input type="text" name="username">
-    <br>
-    <p>password</p>
-    <input type="password" name="password"  id="typepass">
-    <input type="checkbox"
-           onclick="Toggle()">
-    <br>
-    <input type="submit" value="로그인">
-</form>
+                <div class="text-center">
+                    <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png"
+                         class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                         width="200px" alt="profile">
+                </div>
+                <form method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="mb-3" >
+                        <p>username</p>
+                        <input type="text" name="username" style="width: 200px;">
+                        <br>
+                    </div>
+                    <div class="mb-3">
+                        <p>password</p>
+                        <input type="password" name="password" id="typepass">
+                        <input type="checkbox"
+                               onclick="Toggle()">
+                        <br>
+                        <input type="submit" value="로그인">
+                    </div>
 
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
